@@ -63,7 +63,8 @@ const startServer = (done) => {
     browserSync.init({
         server: {
             baseDir: paths.output
-        }
+        },
+        port: 15202
     });
 
     done();
