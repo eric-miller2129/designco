@@ -55,6 +55,10 @@ const appScripts = () =>
         .pipe(sourcemaps.write())
         .pipe(dest(`${ paths.output }/assets/js`))
 
+const images = () =>
+        src(`${ paths.input }/images/**`)
+            .pipe(dest(`${ paths.output }/assets/images`));
+
 const startServer = (done) => {
     browserSync.init({
         server: {
@@ -78,7 +82,8 @@ const watchSource = (done) => {
 exports.build = series(
     parallel(
         styles,
-        pages
+        pages,
+        images
     )
 );
 
