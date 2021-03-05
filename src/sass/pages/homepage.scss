@@ -1,0 +1,12 @@
+.homepage {
+
+    &--header {
+        width: 100%;
+        min-height: 500px;
+        background: $blue;
+        background-image: url(/assets/images/header-pattern.svg);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: 100% auto;
+    }
+}
