@@ -1,2 +1,14 @@
-@import "variables";
-@import "global";
+/*
+* Util files
+*/
+@import "utils/variables";
+
+/*
+* Base Files
+*/
+@import "base/global";
+
+/*
+*   Layout files
+*/
+@import "layout/container";

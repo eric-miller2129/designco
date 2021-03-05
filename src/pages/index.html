@@ -7,11 +7,18 @@
         })
     </head>
     <body>
+        <header class="header">
+            <div class="container">
+                @@include('./partials/nav.html')
+            </div>
+        </header>
         <h1>Homepage</h1>
         <nav>
             <a
                 href="/about"
                 title="About Us">About Us</a>
         </nav>
+
+        @@include('./partials/foot.html')
     </body>
 </html>

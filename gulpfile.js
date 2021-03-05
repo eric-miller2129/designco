@@ -3,6 +3,10 @@ const sass = require('gulp-sass');
 const prettier = require('gulp-prettier');
 const fileInclude = require('gulp-file-include');
 const browserSync = require('browser-sync');
+const sourcemaps = require('gulp-sourcemaps');
+const uglify = require('gulp-uglify');
+const babel = require('gulp-babel');
+const concat = require('gulp-concat');
 
 const paths = {
     input: './src',
@@ -20,7 +24,9 @@ const defaults = {
 
 const styles = () =>
     src('./src/sass/**/*.scss')
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(sourcemaps.write())
         .pipe(dest('./build/assets/css'));
 
 const pages = () =>
@@ -37,6 +43,17 @@ const pages = () =>
         tabWidth: 4,
     }))
     .pipe(dest(paths.output));
+
+const appScripts = () =>
+    src(`${ paths.input }/js/app/app.js`)
+        .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
+        .pipe(uglify())
+        .pipe(concat('app.min.js'))
+        .pipe(sourcemaps.write())
+        .pipe(dest(`${ paths.output }/assets/js`))
 
 const startServer = (done) => {
     browserSync.init({
