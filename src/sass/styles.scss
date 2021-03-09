@@ -3,6 +3,7 @@
 */
 @import "utils/variables";
 @import "utils/mixins/media-queries";
+@import "utils/accents";
 
 /*
 * Base Files
@@ -13,6 +14,7 @@
 *   Layout files
 */
 @import "layout/container";
+@import "layout/section";
 
 /*
 * Page specific files

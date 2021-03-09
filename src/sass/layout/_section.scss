@@ -1,0 +1,17 @@
+section {
+    padding: 20px;
+    border-bottom: solid 1px rgba($black, 0.1);
+
+    &:nth-child(even) {
+        background: darken($offWhite, 2);
+    }
+
+    h2 {
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: bold;
+        margin: 0;
+        width: 100%;
+        font-size: 3.5rem;
+    }
+}
